@@ -197,9 +197,12 @@ export function queryProducts(
  * @param top - Number of products to return (default: 3)
  * @returns Array of cheapest available products
  */
-export function getTopCheapestAvailable(products: any[], top: number = 3): any[] {
+export function getTopCheapestAvailable(
+  products: any[],
+  top: number = 3
+): any[] {
   return products
-    .filter(product => product.stock > 0) // Filter products with available stock
-    .sort((a, b) => a.price - b.price)    // Sort by price ascending
-    .slice(0, top);                       // Take top N cheapest
+    .filter((product) => product.stock > 0) // Filter products with available stock
+    .sort((a, b) => a.price - b.price) // Sort by price ascending
+    .slice(0, top); // Take top N cheapest
 }

@@ -4,6 +4,7 @@ import morgan from "morgan";
 import helmet from "helmet";
 import swaggerUi from "swagger-ui-express";
 import { swaggerSpec } from "./config/swagger";
+import { connectDB } from "./config/database";
 import productsRouter from "./routes/products";
 
 const app: Application = express();
@@ -87,13 +88,28 @@ app.use((error: Error, req: Request, res: Response) => {
 
 // Start server only if this file is run directly (not imported)
 if (require.main === module) {
-  app.listen(PORT, () => {
-    console.log(`🚀 Server is running on port ${PORT}`);
-    console.log(`📊 Health check: http://localhost:${PORT}/health`);
-    console.log(`🛍️  Products API: http://localhost:${PORT}/api/products`);
-    console.log(`📚 API Documentation: http://localhost:${PORT}/api-docs`);
-    console.log(`📄 Swagger JSON: http://localhost:${PORT}/swagger.json`);
-  });
+  // Initialize database connection if using MongoDB
+  const initializeServer = async () => {
+    if (process.env.USE_MONGODB === "true") {
+      try {
+        await connectDB();
+      } catch (error) {
+        console.error(
+          "Failed to connect to MongoDB. Using fallback mock data."
+        );
+      }
+    }
+
+    app.listen(PORT, () => {
+      console.log(`🚀 Server is running on port ${PORT}`);
+      console.log(`📊 Health check: http://localhost:${PORT}/health`);
+      console.log(`🛍️  Products API: http://localhost:${PORT}/api/products`);
+      console.log(`📚 API Documentation: http://localhost:${PORT}/api-docs`);
+      console.log(`📄 Swagger JSON: http://localhost:${PORT}/swagger.json`);
+    });
+  };
+
+  initializeServer();
 }
 
 export default app;

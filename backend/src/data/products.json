@@ -1,0 +1,112 @@
+[
+  {
+  "id": 1,
+    "name": "Smartphone Galaxy Pro",
+    "description": "Latest flagship smartphone with advanced camera and 5G connectivity",
+    "price": 899.99,
+    "category": "Electronics",
+    "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400",
+    "stock": 25,
+    "rating": 4.8,
+    "createdAt": "2024-01-15T10:30:00.000Z"
+  },
+  {
+  "id": 2,
+    "name": "Wireless Headphones",
+    "description": "Premium noise-cancelling wireless headphones with long battery life",
+    "price": 249.99,
+    "category": "Electronics",
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400",
+    "stock": 15,
+    "rating": 4.6,
+    "createdAt": "2024-01-16T14:20:00.000Z"
+  },
+  {
+  "id": 3,
+    "name": "Running Shoes",
+    "description": "Comfortable running shoes with advanced cushioning technology",
+    "price": 129.99,
+    "category": "Sports",
+    "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400",
+    "stock": 30,
+    "rating": 4.4,
+    "createdAt": "2024-01-17T09:15:00.000Z"
+  },
+  {
+  "id": 4,
+    "name": "Coffee Maker",
+    "description": "Automatic coffee maker with programmable brewing and thermal carafe",
+    "price": 199.99,
+    "category": "Home",
+    "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400",
+    "stock": 12,
+    "rating": 4.3,
+    "createdAt": "2024-01-18T16:45:00.000Z"
+  },
+  {
+  "id": 5,
+    "name": "Gaming Laptop",
+    "description": "High-performance gaming laptop with RTX graphics and fast processor",
+    "price": 1299.99,
+    "category": "Electronics",
+    "image": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400",
+    "stock": 8,
+    "rating": 4.9,
+    "createdAt": "2024-01-19T11:30:00.000Z"
+  },
+  {
+  "id": 6,
+    "name": "Yoga Mat",
+    "description": "Non-slip yoga mat with extra cushioning for comfortable practice",
+    "price": 39.99,
+    "category": "Sports",
+    "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400",
+    "stock": 50,
+    "rating": 4.2,
+    "createdAt": "2024-01-20T08:00:00.000Z"
+  },
+  {
+  "id": 7,
+    "name": "Bluetooth Speaker",
+    "description": "Portable waterproof Bluetooth speaker with rich sound quality",
+    "price": 79.99,
+    "category": "Electronics",
+    "image": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400",
+    "stock": 22,
+    "rating": 4.5,
+    "createdAt": "2024-01-21T13:15:00.000Z"
+  },
+  {
+  "id": 8,
+    "name": "Kitchen Knife Set",
+    "description": "Professional chef knife set with wooden block and sharpening steel",
+    "price": 159.99,
+    "category": "Home",
+    "image": "https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=400",
+    "stock": 18,
+    "rating": 4.7,
+    "createdAt": "2024-01-22T10:45:00.000Z"
+  },
+  {
+  "id": 9,
+    "name": "Fitness Tracker",
+    "description": "Smart fitness tracker with heart rate monitor and GPS",
+    "price": 149.99,
+    "category": "Sports",
+    "image": "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=400",
+    "stock": 35,
+    "rating": 4.1,
+    "createdAt": "2024-01-23T15:20:00.000Z"
+  },
+  {
+  "id": 10,
+    "name": "Table Lamp",
+    "description": "Modern LED table lamp with adjustable brightness and USB charging port",
+    "price": 89.99,
+    "category": "Home",
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400",
+    "stock": 0,
+    "rating": 4.0,
+    "createdAt": "2024-01-24T12:00:00.000Z"
+  }
+]

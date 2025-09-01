@@ -41,17 +41,15 @@ export class ReadProductController {
   async getProductById(req: Request, res: Response): Promise<void> {
     try {
       const { id } = req.params;
-
-      if (!id || typeof id !== "string" || id.trim() === "") {
+      const parsedId = Number(id);
+      if (!id || isNaN(parsedId)) {
         res.status(400).json({
           success: false,
           message: "Invalid product ID",
         });
         return;
       }
-
-      const product = await this.readRepository.findById(id.trim());
-
+      const product = await this.readRepository.findById(parsedId);
       if (!product) {
         res.status(404).json({
           success: false,
@@ -131,7 +129,9 @@ export class ReadProductController {
 
       // Get all products and use the utility function
       const products = await this.readRepository.findAll();
-      const { getTopCheapestAvailable } = await import("../../../utils/ProductQueryUtils");
+      const { getTopCheapestAvailable } = await import(
+        "../../../utils/ProductQueryUtils"
+      );
       const cheapestAvailable = getTopCheapestAvailable(products, limit);
 
       res.json({

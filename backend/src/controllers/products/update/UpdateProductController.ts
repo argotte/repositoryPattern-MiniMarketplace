@@ -11,11 +11,12 @@ export class UpdateProductController {
     try {
       const { id } = req.params;
       const updates = req.body;
-      if (!id || typeof id !== "string" || id.trim() === "") {
+      const parsedId = Number(id);
+      if (!id || isNaN(parsedId)) {
         res.status(400).json({ success: false, message: "Invalid product ID" });
         return;
       }
-      const exists = await this.updateRepository.exists(id.trim());
+      const exists = await this.updateRepository.exists(parsedId);
       if (!exists) {
         res.status(404).json({ success: false, message: "Product not found" });
         return;
@@ -25,25 +26,21 @@ export class UpdateProductController {
       );
       const validation = validateProductUpdates(updates);
       if (!validation.valid) {
-        res
-          .status(400)
-          .json({
-            success: false,
-            message: validation.errors?.join("; ") || "Invalid updates",
-          });
+        res.status(400).json({
+          success: false,
+          message: validation.errors?.join("; ") || "Invalid updates",
+        });
         return;
       }
       const updatedProduct = await this.updateRepository.update(
-        id.trim(),
+        parsedId,
         validation.data
       );
       if (!updatedProduct) {
-        res
-          .status(404)
-          .json({
-            success: false,
-            message: "Product not found or could not be updated",
-          });
+        res.status(404).json({
+          success: false,
+          message: "Product not found or could not be updated",
+        });
         return;
       }
       res.json({
@@ -53,13 +50,11 @@ export class UpdateProductController {
       });
     } catch (error) {
       console.error("Error in updateProduct:", error);
-      res
-        .status(500)
-        .json({
-          success: false,
-          message: "Error updating product",
-          error: error instanceof Error ? error.message : "Unknown error",
-        });
+      res.status(500).json({
+        success: false,
+        message: "Error updating product",
+        error: error instanceof Error ? error.message : "Unknown error",
+      });
     }
   }
 }

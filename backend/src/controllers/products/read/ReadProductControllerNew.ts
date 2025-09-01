@@ -54,7 +54,8 @@ export class ReadProductController {
     try {
       const { id } = req.params;
 
-      if (!id || typeof id !== "string" || id.trim() === "") {
+      const parsedId = Number(id);
+      if (!id || isNaN(parsedId)) {
         res.status(400).json({
           success: false,
           message: "Invalid product ID",
@@ -62,7 +63,7 @@ export class ReadProductController {
         return;
       }
 
-      const product = await this.readRepository.findById(id.trim());
+      const product = await this.readRepository.findById(parsedId);
 
       if (!product) {
         res.status(404).json({

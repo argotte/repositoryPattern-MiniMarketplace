@@ -17,7 +17,7 @@ export class ProductService {
     return this.productRepository.findAll();
   }
 
-  async getProductById(id: string): Promise<Product | null> {
+  async getProductById(id: number): Promise<Product | null> {
     return this.productRepository.findById(id);
   }
 
@@ -28,13 +28,13 @@ export class ProductService {
   }
 
   async updateProduct(
-    id: string,
+    id: number,
     productData: Partial<Product>
   ): Promise<Product | null> {
     return this.productRepository.update(id, productData);
   }
 
-  async deleteProduct(id: string): Promise<boolean> {
+  async deleteProduct(id: number): Promise<boolean> {
     return this.productRepository.delete(id);
   }
 
@@ -98,7 +98,7 @@ export class ProductService {
   }
 
   // Utility operations
-  async productExists(id: string): Promise<boolean> {
+  async productExists(id: number): Promise<boolean> {
     return this.productRepository.exists(id);
   }
 

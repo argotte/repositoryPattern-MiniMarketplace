@@ -9,7 +9,7 @@ import { PriceUtils } from "../utils/PriceUtils";
 // Mock product data
 const mockProducts: Product[] = [
   {
-    id: "1",
+    id: 1,
     name: "iPhone 14 Pro",
     description: "Latest Apple smartphone with Pro camera system",
     price: 999.99,
@@ -20,7 +20,7 @@ const mockProducts: Product[] = [
     createdAt: "2024-01-15T00:00:00.000Z",
   },
   {
-    id: "2",
+    id: 2,
     name: "MacBook Air M2",
     description: "Lightweight laptop with Apple M2 chip",
     price: 1299.99,
@@ -31,7 +31,7 @@ const mockProducts: Product[] = [
     createdAt: "2024-01-20T00:00:00.000Z",
   },
   {
-    id: "3",
+    id: 3,
     name: "Nike Air Max 270",
     description: "Comfortable running shoes with Air Max technology",
     price: 150.0,
@@ -42,7 +42,7 @@ const mockProducts: Product[] = [
     createdAt: "2024-02-01T00:00:00.000Z",
   },
   {
-    id: "4",
+    id: 4,
     name: "Sony WH-1000XM5",
     description: "Premium noise-canceling wireless headphones",
     price: 399.99,
@@ -53,7 +53,7 @@ const mockProducts: Product[] = [
     createdAt: "2024-02-10T00:00:00.000Z",
   },
   {
-    id: "5",
+    id: 5,
     name: "Levi's 501 Original Jeans",
     description: "Classic straight-leg jeans",
     price: 89.99,
@@ -64,7 +64,7 @@ const mockProducts: Product[] = [
     createdAt: "2024-02-15T00:00:00.000Z",
   },
   {
-    id: "6",
+    id: 6,
     name: "KitchenAid Stand Mixer",
     description: "Professional 5-quart stand mixer",
     price: 379.99,
@@ -75,7 +75,7 @@ const mockProducts: Product[] = [
     createdAt: "2024-03-01T00:00:00.000Z",
   },
   {
-    id: "7",
+    id: 7,
     name: "Adidas Ultraboost 22",
     description: "Energy-returning running shoes",
     price: 180.0,
@@ -86,7 +86,7 @@ const mockProducts: Product[] = [
     createdAt: "2024-03-05T00:00:00.000Z",
   },
   {
-    id: "8",
+    id: 8,
     name: 'Samsung 65" QLED TV',
     description: "4K Smart TV with Quantum Dot technology",
     price: 1499.99,
@@ -117,7 +117,7 @@ export class MockProductRepository
     });
   }
 
-  async findById(id: string): Promise<Product | null> {
+  async findById(id: number): Promise<Product | null> {
     return new Promise((resolve) => {
       setTimeout(() => {
         const product = productStore.find((p) => p.id === id) || null;
@@ -182,7 +182,7 @@ export class MockProductRepository
       setTimeout(() => {
         const newProduct: Product = {
           ...productData,
-          id: nextId.toString(),
+          id: nextId,
           createdAt: new Date().toISOString(),
         };
 
@@ -195,7 +195,7 @@ export class MockProductRepository
 
   // Update operations
   async update(
-    id: string,
+    id: number,
     productData: Partial<Product>
   ): Promise<Product | null> {
     return new Promise((resolve) => {
@@ -213,7 +213,7 @@ export class MockProductRepository
   }
 
   // Delete operations
-  async delete(id: string): Promise<boolean> {
+  async delete(id: number): Promise<boolean> {
     return new Promise((resolve) => {
       setTimeout(() => {
         const index = productStore.findIndex((p) => p.id === id);
@@ -229,7 +229,7 @@ export class MockProductRepository
   }
 
   // Utility operations
-  async exists(id: string): Promise<boolean> {
+  async exists(id: number): Promise<boolean> {
     return new Promise((resolve) => {
       setTimeout(() => {
         const exists = productStore.some((p) => p.id === id);
