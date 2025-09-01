@@ -1,0 +1,14 @@
+{
+  "name": "vibes-api",
+  "private": true,
+  "description": "Wrapper de la API para ejecutar desde /api usando el backend existente",
+  "scripts": {
+    "dev": "cd ../backend && npm run dev",
+    "dev:mongo": "cd ../backend && npm run dev:mongo",
+    "build": "cd ../backend && npm run build",
+    "start": "cd ../backend && npm run start",
+    "test": "cd ../backend && npm test",
+    "seed": "cd ../backend && npm run seed",
+    "seed:mongo": "cd ../backend && npm run seed:mongo"
+  }
+}

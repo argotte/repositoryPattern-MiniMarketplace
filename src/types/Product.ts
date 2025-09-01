@@ -1,14 +1,4 @@
-export interface Product {
-  id: number;
-  name: string;
-  description: string;
-  price: number;
-  category: string;
-  image: string;
-  stock: number;
-  rating: number;
-  createdAt: string;
-}
+export type { Product } from "../../shared/types/Product";
 
 export interface ApiResponse<T> {
   success: boolean;
