@@ -6,6 +6,7 @@ import { ReadProductController } from "../controllers/products/read/ReadProductC
 import { UpdateProductController } from "../controllers/products/update/UpdateProductController";
 import { DeleteProductController } from "../controllers/products/delete/DeleteProductController";
 import { StatsController } from "../controllers/products/stats/StatsController";
+import { SeedController } from "../controllers/products/seed/SeedController";
 
 // Repository instances - switch between Mock and Mongo
 const USE_MONGODB = process.env.USE_MONGODB === "true";
@@ -21,3 +22,4 @@ export const readProductController = new ReadProductController(repository);
 export const updateProductController = new UpdateProductController(repository);
 export const deleteProductController = new DeleteProductController(repository);
 export const statsController = new StatsController(repository, repository);
+export const seedController = new SeedController();

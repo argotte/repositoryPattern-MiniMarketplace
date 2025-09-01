@@ -7,6 +7,7 @@ export { ReadProductController } from "./read/ReadProductController";
 export { UpdateProductController } from "./update/UpdateProductController";
 export { DeleteProductController } from "./delete/DeleteProductController";
 export { StatsController } from "./stats/StatsController";
+export { SeedController } from "./seed/SeedController";
 
 // Export controller instances with dependency injection
 export {
@@ -16,6 +17,7 @@ export {
   deleteProductController,
   statsController,
 } from "../../config/di";
+export { seedController } from "../../config/di";
 
 // Export combined controller object for convenience
 import {
@@ -25,6 +27,7 @@ import {
   deleteProductController,
   statsController,
 } from "../../config/di";
+import { seedController } from "../../config/di";
 
 export const ProductControllers = {
   create: createProductController,
@@ -32,4 +35,5 @@ export const ProductControllers = {
   update: updateProductController,
   delete: deleteProductController,
   stats: statsController,
+  seed: seedController,
 };

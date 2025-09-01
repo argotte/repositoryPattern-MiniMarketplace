@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { ProductControllers } from "../controllers/products";
+import { Router as _Router } from "express";
 
 const router = Router();
 
@@ -138,6 +139,47 @@ router.post(
   "/",
   ProductControllers.create.createProduct.bind(ProductControllers.create)
 );
+
+/**
+ * @swagger
+ * /api/products/seed:
+ *   post:
+ *     summary: Re-seed de productos desde el JSON canónico
+ *     description: Limpia la colección y vuelve a insertar los productos de backend/src/data/products.json (solo disponible con USE_MONGODB=true)
+ *     tags: [Products]
+ *     responses:
+ *       201:
+ *         description: Seed ejecutado exitosamente
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                 message:
+ *                   type: string
+ *                 deleted:
+ *                   type: integer
+ *                 inserted:
+ *                   type: integer
+ *                 categories:
+ *                   type: object
+ *       400:
+ *         description: Operación inválida (no Mongo)
+ *       500:
+ *         description: Error interno del servidor
+ */
+router.post("/seed", async (req, res) => {
+  if (process.env.USE_MONGODB !== "true") {
+    return res.status(400).json({
+      success: false,
+      message:
+        "Seeding is only available when USE_MONGODB=true (Mongo repository)",
+    });
+  }
+  return ProductControllers.seed.runSeed(req, res);
+});
 
 /**
  * @swagger
