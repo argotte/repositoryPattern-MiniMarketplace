@@ -30,6 +30,42 @@ const router = Router();
  *           format: float
  *         description: Precio máximo para filtrar productos
  *         example: 100.00
+ *       - in: query
+ *         name: available
+ *         schema:
+ *           type: string
+ *           enum: ["true", "false"]
+ *         description: Filtra por disponibilidad (stock > 0)
+ *         example: "true"
+ *       - in: query
+ *         name: sort
+ *         schema:
+ *           type: string
+ *           enum: ["price", "name"]
+ *         description: Campo de ordenamiento
+ *         example: price
+ *       - in: query
+ *         name: order
+ *         schema:
+ *           type: string
+ *           enum: ["asc", "desc"]
+ *         description: Dirección de ordenamiento
+ *         example: asc
+ *       - in: query
+ *         name: page
+ *         schema:
+ *           type: integer
+ *           minimum: 1
+ *         description: Página (paginación)
+ *         example: 1
+ *       - in: query
+ *         name: limit
+ *         schema:
+ *           type: integer
+ *           minimum: 1
+ *           maximum: 100
+ *         description: Tamaño de página (paginación)
+ *         example: 10
  *     responses:
  *       200:
  *         description: Lista de productos obtenida exitosamente
