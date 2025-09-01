@@ -10,9 +10,10 @@ export class DeleteProductController {
   async deleteProduct(req: Request, res: Response): Promise<void> {
     try {
       const { id } = req.params;
+      const parsedId = Number(id);
 
-      // Validate product ID
-      if (!id || typeof id !== "string" || id.trim() === "") {
+      // Validate product ID as integer
+      if (!id || isNaN(parsedId)) {
         res.status(400).json({
           success: false,
           message: "Invalid product ID",
@@ -21,7 +22,7 @@ export class DeleteProductController {
       }
 
       // Check if product exists before deletion
-      const existingProduct = await this.deleteRepository.exists(id.trim());
+      const existingProduct = await this.deleteRepository.exists(parsedId);
       if (!existingProduct) {
         res.status(404).json({
           success: false,
@@ -31,7 +32,7 @@ export class DeleteProductController {
       }
 
       // Attempt to delete the product
-      const deleteSuccess = await this.deleteRepository.delete(id.trim());
+      const deleteSuccess = await this.deleteRepository.delete(parsedId);
 
       if (!deleteSuccess) {
         res.status(500).json({

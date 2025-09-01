@@ -212,9 +212,9 @@ router.get(
  *         name: id
  *         required: true
  *         schema:
- *           type: string
+ *           type: integer
  *         description: ID único del producto
- *         example: "1"
+ *         example: 1
  *     responses:
  *       200:
  *         description: Producto encontrado exitosamente
@@ -246,9 +246,9 @@ router.get(
  *         name: id
  *         required: true
  *         schema:
- *           type: string
+ *           type: integer
  *         description: ID único del producto a actualizar
- *         example: "1"
+ *         example: 1
  *     requestBody:
  *       required: true
  *       content:
@@ -305,9 +305,9 @@ router.get(
  *         name: id
  *         required: true
  *         schema:
- *           type: string
+ *           type: integer
  *         description: ID único del producto a eliminar
- *         example: "1"
+ *         example: 1
  *     responses:
  *       200:
  *         description: Producto eliminado exitosamente
